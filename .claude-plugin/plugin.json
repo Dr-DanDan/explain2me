@@ -1,0 +1,11 @@
+{
+  "name": "explain2me",
+  "description": "Explain concepts and code with plain language, focused diagrams, and visual HTML pages.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Dr-DanDan"
+  },
+  "repository": "https://github.com/Dr-DanDan/explain2me",
+  "license": "MIT",
+  "keywords": ["explain", "learning", "diagrams", "visualization", "html"]
+}

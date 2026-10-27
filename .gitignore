@@ -1,0 +1,12 @@
+# Local credentials and generated explainers
+.env
+.env.*
+!.env.example
+/output/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
