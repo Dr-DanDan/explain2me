@@ -1,8 +1,10 @@
 # explain2me
 
-用简明文字、直观图解和生活类比，解释概念、代码流程与方案差异。
+用一则临近结尾才显露含义的寓言，解释一个研究生水平的概念。
 
-这是一个基于 Markdown 指令的 Agent Skill 项目，采用单插件、单技能结构。初版根据问题选择伪代码、结构树、Mermaid、对比表或独立 HTML 页面；HTML 产物默认写入 `output/`。
+先读故事，再揭晓概念、解释隐喻对应和类比的边界。可以指定概念、只给领域，或让技能自动选择领域与概念；默认在对话中直接输出文字。
+
+这是一个基于 Markdown 指令的 Agent Skill 项目，采用单插件、单技能结构。
 
 ## 目录
 
@@ -46,10 +48,10 @@ npx skills add Dr-DanDan/explain2me --skill explain2me -a codex
 
 ```text
 # Codex
-$explain2me 用一个生活中的例子和流程图解释缓存命中与失效。
+$explain2me 自选一个研究生水平的概念，用寓言解释，临近结尾再揭晓。
 
 # Claude Code，按独立技能安装时
-/explain2me 用调用树解释当前项目的请求处理流程。
+/explain2me 从统计学中选择一个研究生水平的概念，用寓言解释。
 ```
 
 若要按 Claude Code 插件方式本地加载，在仓库根目录运行：
@@ -61,7 +63,7 @@ claude --plugin-dir .
 随后在该会话中使用：
 
 ```text
-/explain2me:explain2me 用图解比较同步和异步执行。
+/explain2me:explain2me 用寓言解释拉格朗日对偶，故事后说明每个关键隐喻的对应关系。
 ```
 
 两种加载方式选择一种即可。
@@ -73,17 +75,17 @@ claude plugin validate .
 git diff --check
 ```
 
-修改技能后，可用上面的概念解释、代码流程和方案比较三个请求试用，检查图文是否一致；生成 HTML 时再检查桌面与窄屏布局。结构检查通过不代表解释效果已经验收。
+修改技能后，可用上面三种请求检查自动选题、领域内选题和指定概念是否正确。重点检查：标题和开场是否保留悬念，故事末段是否体现关键机制，以及故事后的解释、隐喻映射和类比边界是否准确。结构检查通过不代表叙事效果和学术准确性已经验收。
 
 ## 结构参考
 
 参考核对日期：2026-10-27。
 
-- [HumanLayer show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me)：参考插件清单与 `skills/show-me/SKILL.md` 布局，以及按问题选择图示的方式。
-- [Anthropic 社区 ELI5](https://github.com/anthropics/claude-plugins-community/tree/main/eli5)：参考单技能插件结构，以及以图为主的入门解释思路。
+- [HumanLayer show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me)：初始化时参考插件清单与 `skills/show-me/SKILL.md` 布局。
+- [Anthropic 社区 ELI5](https://github.com/anthropics/claude-plugins-community/tree/main/eli5)：初始化时参考单技能插件结构。
 - [Claude Code 插件规范](https://code.claude.com/docs/en/plugins-reference)与 [Skills CLI](https://github.com/vercel-labs/skills)：用于核对目录、插件清单和安装命令。
 
-本项目的技能指令独立编写，仓库按单插件组织，后续有具体需要时再增加脚本、模板或参考资料。
+本项目的技能指令根据“先讲寓言、临近结尾才显露概念、故事后解释隐喻”的要求独立编写。
 
 ## 许可证
 

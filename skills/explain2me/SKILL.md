@@ -1,37 +1,30 @@
 ---
 name: explain2me
-description: Explain concepts, code flows, and comparisons with plain language and focused visuals. Use when the user asks for an intuitive explanation, a beginner-friendly walkthrough, or a diagram that makes a topic easier to understand.
+description: 用临近结尾才揭晓含义的寓言解释研究生层次的概念。用户要求用故事、寓言或隐喻讲清学术概念时使用；支持指定概念、只给领域或自动选题。
 license: MIT
 ---
 
 # Explain2me
 
-Make the requested topic understandable at the user's level, with a visual that carries the explanation.
+用一个能独立读懂的寓言，间接讲清一个概念；让读者先经历故事，临近结尾才意识到它所表达的学术机制。
 
-## Establish the topic
+## 选题
 
-Use the topic supplied with the invocation, or the current discussion. Ask one focused question if neither identifies what to explain. Match the user's language and infer their background from context; otherwise assume a beginner without using a childish tone.
+- 用户指定概念时围绕该概念写；只指定领域时在该领域选择一个概念；两者都未指定时自行选择领域与概念，无需追问。
+- 自选概念应具有研究生课程或研究中的实质深度，适合通过故事呈现关键机制。用户指定的概念优先于默认难度。
+- 先明确概念的关键关系、成立条件及其故事对应，再写寓言。对不确定的学术内容查证可靠来源，引用放在故事之后。
 
-When explaining a particular codebase or document, inspect the relevant source before describing its behavior. Keep hypothetical examples distinct from observed behavior.
+## 寓言
 
-## Choose a useful visual
+- 从故事标题或首个场景直接开始，使用具体人物、目标、约束、选择与后果，让情节本身体现概念的因果或结构关系。
+- 标题、开场及故事前段不透露概念名称、领域标签或定义，也不先宣布选题；即使用户已经指定概念，仍保留故事的展开顺序。
+- 把关键领悟安排在故事末段，通过人物的发现、行动或结局让隐喻显露；正式命名与讲解留到故事结束后。
+- 写成完整寓言，而不是把定义拆成角色台词，或仅给抽象术语换上人物名字。使用读者能理解的叙事语言，保留概念真正起作用的条件。
 
-Start with the central idea in one or two sentences. Choose the smallest representation that explains the relationship:
+## 故事后的解释
 
-| Topic | Useful representation |
-| --- | --- |
-| Logic or an algorithm | Pseudocode with a small worked example |
-| File ownership or call hierarchy | A shallow file tree or call tree |
-| Interactions, order, or data flow | A Mermaid flowchart or sequence diagram |
-| Differences between approaches | A compact comparison table or annotated diff |
-| A spatial concept or visual interaction | A self-contained HTML page |
+1. **概念揭晓**：给出概念名称、所属领域及准确解释，说明关键机制和必要假设；公式只在有助于理解时使用，并解释符号。
+2. **隐喻对应**：用简明表格将故事中起解释作用的人物、事物、规则和转折，逐项对应到概念要素，说明对应关系。
+3. **类比的边界**：指出故事作了哪些重要简化、哪里不能直接套用；区分帮助理解的隐喻与学术证明。
 
-Use an everyday analogy when it helps, connect it to the actual mechanism, and identify any simplification that could mislead. Label technical terms where they first become necessary. Keep each visual beside the short explanation it supports.
-
-## Deliver
-
-For HTML, use inline CSS and SVG with readable labels, sufficient contrast, and a responsive layout. Include interaction only when changing a value or stepping through a process helps explain it. Keep the page usable without a network connection.
-
-Use the requested destination for saved artifacts; otherwise use `output/explain2me-<topic>.html` in the current project. Preserve existing files by choosing a new filename when needed. Preview the page when the environment supports it, check labels and layout, and provide a link to the artifact. If a preview cannot run, say so.
-
-Keep the final explanation focused on the user's question and make the key mechanism visible in the diagram or example.
+默认直接在对话中以文字输出，匹配用户的语言和篇幅要求。交付前检查：答案是否提前泄露，故事的关键转折是否真正体现所选概念，以及解释与隐喻映射是否一致。
